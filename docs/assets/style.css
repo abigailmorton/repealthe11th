@@ -190,3 +190,29 @@ footer p{
     border-left: 3px solid #cfcfcf;
   }
 }
+
+.top-nav {
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  padding: 0.75rem 1rem;
+  background: #fff;
+}
+
+.top-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.top-nav a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+}
+
+.top-nav a:hover {
+  text-decoration: underline;
+}
+
