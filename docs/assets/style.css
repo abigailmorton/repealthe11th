@@ -1,0 +1,192 @@
+/* repealthe11th.cloverdalelane.com
+   Minimal, print-friendly, law-memo aesthetic.
+   No JS. No gimmicks. Just text that reads well.
+*/
+
+:root{
+  --bg: #fbfaf8;
+  --text: #171717;
+  --muted: #555;
+  --rule: #d9d4cc;
+  --link: #0b4aa2;
+  --link-hover: #08356f;
+  --quote-bg: #f3f0eb;
+
+  --measure: 70ch;
+  --radius: 10px;
+
+  --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Noto Sans", Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body{
+  height: 100%;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-kerning: normal;
+}
+
+header, main, footer{
+  width: min(100% - 2rem, calc(var(--measure) + 6rem));
+  margin: 0 auto;
+}
+
+header{
+  padding: 3.25rem 0 1.5rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+h1{
+  margin: 0 0 0.4rem 0;
+  font-family: var(--sans);
+  font-size: clamp(2rem, 2.5vw + 1rem, 3rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.subtitle{
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: var(--measure);
+}
+
+main{
+  padding: 1.75rem 0 2.75rem 0;
+}
+
+section{
+  margin: 1.6rem 0 0 0;
+}
+
+section + section{
+  padding-top: 1.35rem;
+  border-top: 1px solid var(--rule);
+}
+
+h2{
+  margin: 0 0 0.55rem 0;
+  font-family: var(--sans);
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+p{
+  margin: 0 0 1rem 0;
+  max-width: var(--measure);
+}
+
+ul{
+  margin: 0.35rem 0 1rem 1.25rem;
+  padding: 0;
+  max-width: var(--measure);
+}
+
+li{
+  margin: 0.25rem 0;
+}
+
+a{
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+  text-decoration-thickness: 0.08em;
+}
+
+a:hover, a:focus{
+  color: var(--link-hover);
+}
+
+a:focus{
+  outline: 2px solid rgba(11, 74, 162, 0.25);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+blockquote{
+  margin: 1rem 0 1.25rem 0;
+  padding: 1rem 1.1rem;
+  background: var(--quote-bg);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--rule);
+  border-radius: var(--radius);
+  max-width: var(--measure);
+}
+
+blockquote p{
+  margin: 0 0 0.75rem 0;
+}
+
+blockquote p:last-child{
+  margin-bottom: 0;
+}
+
+strong{
+  font-weight: 700;
+}
+
+code, pre{
+  font-family: var(--mono);
+  font-size: 0.95em;
+}
+
+footer{
+  padding: 1.5rem 0 2.5rem 0;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+footer p{
+  margin: 0;
+}
+
+/* Slightly tighter on very small screens */
+@media (max-width: 520px){
+  header{
+    padding-top: 2.5rem;
+  }
+  main{
+    padding-top: 1.25rem;
+  }
+  blockquote{
+    padding: 0.9rem;
+  }
+}
+
+/* Print: remove background, keep rules light, preserve links */
+@media print{
+  :root{
+    --bg: #ffffff;
+    --quote-bg: #ffffff;
+    --rule: #cfcfcf;
+    --link: #000000;
+    --link-hover: #000000;
+  }
+  body{
+    background: #ffffff;
+  }
+  header, main, footer{
+    width: 100%;
+    margin: 0;
+  }
+  a{
+    text-decoration: none;
+    color: #000;
+  }
+  blockquote{
+    border-left: 3px solid #cfcfcf;
+  }
+}
